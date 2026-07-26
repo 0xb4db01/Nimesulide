@@ -1,0 +1,9 @@
+{
+    "type": "SVC",
+    "loader_template": "core/loaders/svc/svclegacy.nim",
+    "evade_import": "../core/evasion/dll/cliargs",
+    "load_func": "../core/load_func/legacy_load",
+    "binfile": "<your shellcode file>.bin",
+    "xor_key": "s3cr3t",
+    "outfile": "loaders/svclegacy.nim"
+}

@@ -1,0 +1,9 @@
+{
+    "type": "EXE",
+    "loader_template": "core/loaders/exe/exelegacy.nim",
+    "load_func": "../core/load_func/legacy_load",
+    "evade_import": "../core/evasion/generic/user",
+    "binfile": "<your shellcode file>.bin",
+    "xor_key": "s3cr3t",
+    "outfile": "loaders/exelegacy.nim"
+}
