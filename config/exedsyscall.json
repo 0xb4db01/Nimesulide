@@ -3,7 +3,7 @@
     "loader_template": "core/loaders/exe/exelegacy.nim",
     "load_func": "../core/load_func/direct_sysload",
     "evade_import": "../core/evasion/generic/user",
-    "binfile": "msgbox.bin",
+    "binfile": "<your shellcode here>.bin",
     "xor_key": "s3cr3t",
     "outfile": "loaders/exedsyscall.nim",
     "compile_cmd": "nim c -d:release -d:mingw -d:strip -d:nimGenAsm --cpu:amd64 --passC:\"-masm=intel\""
