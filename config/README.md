@@ -15,6 +15,11 @@ genXORedLoader expects a JSON config file as argument. This file contain all the
 - `outfile`: the nim code for the loader
 - `compile_cmd`: the nim compiler command, because each loader may have different nim or gcc flags
 
+Specific for SVC:
+- `service_name`: the service name of your choice
+
+**None of these key-value pairs are optional**.
+
 genXORedLoader will print the nim compile command for the loader.
 
 ```JSON
