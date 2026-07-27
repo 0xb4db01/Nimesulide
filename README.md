@@ -48,18 +48,7 @@ Functions that actually load and execute shellcode. See more in `core/load_func/
 
 #### Loader templates
 
-There are two type of loaders. 
-
-Legacy, which is the most basic loader possible:
-
-- VirtualAlloc READ/WRITE
-- Decrypt payload
-- VirtualProtect `PAGE_EXECUTE_READ`
-- CreateThread
-- WaitForSingleObject
-- ...
-
-And Direct Syscall which does the same but levarages direct syscalls.
+Loader templates are just tiny Nim code with a main function and some placeholders that will be replaced with relevant code, based on loader function and other stuff you define in configuration files.
 
 # Usage
 
