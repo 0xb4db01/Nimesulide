@@ -33,6 +33,12 @@ proc main() =
         let payload = bin2XORArray(binFile, xorKey)
 
         code = code.replace("{payload}", payload)
+
+        if $config["type"].getStr() == "SVC":
+            echo "[*] SVC special checks: service_name"
+
+            code = code.replace("{service_name}",
+                    $config["service_name"].getStr().strip())
         
         let outFile = $config["outfile"].getStr().strip()
 
