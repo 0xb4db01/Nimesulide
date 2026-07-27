@@ -8,7 +8,7 @@ genXORedLoader expects a JSON config file as argument. This file contain all the
 
 - `type`: the type of loader (EXE, DLL, SVC)
 - `loader_template`: the template you want to use
-- `load_func`: the payload loader function to use: `legacy` or `direct_sysload`
+- `load_func`: the payload loader function to use: `legacy_load` or `direct_sysload`
 - `evade_import`: nimesulide's evasion nim module
 - `binfile`: the shellcode binary file
 - `xor_key`: the XOR encryption key
@@ -44,7 +44,7 @@ You *should* run genXORedLoader from nimesulide's directory and use `../core/eva
 
 Each loader will load and execute the payload with two possible functions:
 
-- `legacy`
+- `legacy_load`
 - `direct_sysload`
 
 Legacy is just the plain VirtualAlloc (`PAGE_READWRITE`), decrypt payload, copyMem, VirtualProtect (`PAGE_EXECUTE_READ`), CreateThread, WaitForSingleObject. Which is, you know... you gotta be careful here.
