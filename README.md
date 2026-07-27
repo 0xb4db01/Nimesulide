@@ -48,13 +48,18 @@ Functions that actually load and execute shellcode. See more in `core/load_func/
 
 #### Loader templates
 
-There is only one `legacy` type loader. It's the most basic loader possible:
+There are two type of loaders. 
 
+Legacy, which is the most basic loader possible:
+
+- VirtualAlloc READ/WRITE
 - Decrypt payload
-- VirtualAlloc READ/WRITE/EXEC
+- VirtualProtect `PAGE_EXECUTE_READ`
 - CreateThread
 - WaitForSingleObject
 - ...
+
+And Direct Syscall which does the same but levarages direct syscalls.
 
 # Usage
 
@@ -110,11 +115,13 @@ Run from Nimesulide's main directory the following:
 
 Of course, the config files here are the ones that ship with Nimesulide and they serve as example. Make your own or modify them to your needs.
 
+Also, these examples are for legacy loader. Use the examples for direct syscalls if you wish to go that path.
+
 ## Testing & state of the art
 
 I tested this on Windows 11 Home with default MS Defender. With meterpreter both staged and not staged, the EXE sometimes gets caught right after establishing connection.
 
-Metasploit's `impersonate_sll` modules seemed to have done some fix but, again, it got caught a couple of times. I didn't debug so I don't know exactly what's happening. It's just arbitrary.
+Metasploit's `impersonate_ssl` modules seemed to have done some fix but, again, it got caught a couple of times. I didn't debug so I don't know exactly what's happening. It's just arbitrary.
 
 You can try adding some `sleep` before decrypting in the `loadPayload` function, it did the trick for me but then, plain EXE loader as is got back to work without any tweaks. It's weird, I don't really care ATM.
 
