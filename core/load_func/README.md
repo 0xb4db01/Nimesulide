@@ -1,6 +1,6 @@
 # Load functions
 
-This section is for function that actually load in memory the payload and execute it. At the moment, there is only one legacy function that does the most basic (and monitored) technique:
+This section is for function that actually load in memory the payload and execute it. At the moment, there is a legacy and a direct syscall way of doing the following:
 
 - Allocate memory
 - Decrypt payload
@@ -8,8 +8,6 @@ This section is for function that actually load in memory the payload and execut
 - Make memory executable
 - Create thread
 - Wait forever
-
-The flavors for doing so are `legacy` and `direct_sysload`, which implements direct syscalls.
 
 We keep the decryption task in here because we want to do it at the very last, to avoid memory scans as much as possible. Obviously, with advanced EDRs and similar this is far from being OPSEC safe, but it's a start.
 
@@ -34,3 +32,5 @@ cast[ptr UncheckedArray[byte]](payload)
 ## Considerations
 
 The legacy loader function shamelessly uses VirtualAlloc, VirtualProtect and so. These are quite monitored for behavior. I am very tempted to add NO! Not now, sorry.
+
+Ok, I've added direct syscall because I was in a good mood. Don't get used to this.
