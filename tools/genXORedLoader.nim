@@ -38,14 +38,10 @@ proc main() =
 
         writeFile(outFile, code)
 
-        if $config["type"].getStr().strip() == "DLL":
-            echo """[*] compile with the following command: nim c -d:release -d:mingw -d:strip --app:lib --nomain --cpu:amd64 --passL:"-static" """ & outFile
-        elif $config["type"].getStr().strip() == "SVC":
-            echo """[*] compile with the following command: nim c -d:release -d:mingw -d:strip --app:console --cpu:amd64 """ & outfile
-        else:
-            echo "[*] Compile with the following command: nim c -d:release -d:mingw -d:strip --cpu=amd64 --app=console " & outFile
-    else:
-        echo "No such file " & $config["loader_template"]
+        echo "[*] Compile with the following command: " &
+                $config["compile_cmd"].getStr().strip() &
+                " " &
+                $config["outfile"].getStr().strip()
 
 when isMainModule:
     main()

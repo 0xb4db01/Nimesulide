@@ -1,0 +1,10 @@
+{
+    "type": "SVC",
+    "loader_template": "core/loaders/svc/svclegacy.nim",
+    "evade_import": "../core/evasion/dll/cliargs",
+    "load_func": "../core/load_func/direct_sysload",
+    "binfile": "<your shellcode file>.bin",
+    "xor_key": "s3cr3t",
+    "outfile": "loaders/svcdsyscall.nim",
+    "compile_cmd": "nim c -d:release -d:mingw -d:strip -d:nimGenAsm --app:console --cpu:amd64 --passC:\"-masm=intel\""
+}

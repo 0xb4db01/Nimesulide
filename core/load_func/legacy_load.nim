@@ -1,4 +1,3 @@
-import winim/lean
 import ../crypto/exor/xorro
 
 proc loadPayload(

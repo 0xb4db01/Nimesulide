@@ -1,0 +1,10 @@
+{
+    "type": "DLL",
+    "loader_template": "core/loaders/dll/dllegacy.nim",
+    "load_func": "../core/load_func/direct_sysload",
+    "evade_import": "../core/evasion/dll/cliargs",
+    "binfile": "<your shellcode file>.bin",
+    "xor_key": "s3cr3t",
+    "outfile": "loaders/dlldsyscall.nim",
+    "compile_cmd": "nim c -d:release -d:mingw -d:strip -d:nimGenAsm --app:lib --nomain --cpu:amd64 --passL:\"-static\" --passC:\"-masm=intel\""
+}
