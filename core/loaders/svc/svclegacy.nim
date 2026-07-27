@@ -7,9 +7,6 @@ import ../core/crypto/exor/xorro
 
 var key: string = {key}
 
-# TODO: the serice name is hardcoded. It would be nice to make it configurable
-# via JSON config, however I need to add logic that is specific for SVC.
-# For now, change it here in the template.
 var SERVICE_NAME: LPTSTR =  "{service_name}".LPTSTR
 var gSvcStatus: SERVICE_STATUS
 var gSvcStatusHandle: SERVICE_STATUS_HANDLE
